@@ -1,10 +1,7 @@
 package Projeto;
 
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
-
-//arraylista de contas já esta com kauan, para não perder tempo vou fazer outras
 
 public class ContaBancaria extends CadastroUsuario{
 
@@ -14,9 +11,8 @@ public class ContaBancaria extends CadastroUsuario{
     private double saldo;
     private Usuario usuario;
     
-    public ContaBancaria(String cpf, String nome, String endereco, String dataNascimento, int codigo, String login,
-            String senha, double saldo, Usuario usuario) {
-        super(cpf, nome, endereco, dataNascimento);
+
+public ContaBancaria(int codigo, String login, String senha, double saldo, Usuario usuario) {
         this.codigo = codigo;
         this.login = login;
         this.senha = senha;
@@ -24,7 +20,7 @@ public class ContaBancaria extends CadastroUsuario{
         this.usuario = usuario;
     }
 
-    public int getCodigo() {
+public int getCodigo() {
         return codigo;
     }
     public void setCodigo(int codigo) {
@@ -42,19 +38,49 @@ public class ContaBancaria extends CadastroUsuario{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    public double getSaldo() {
-        return saldo;
-    }
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
     public Usuario getUsuario() {
         return usuario;
     }
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
+     public double getSaldo() {
+        return saldo;
+    }
 
+public void sacar(double valor){
+    if(getSaldo()>0&&valor>0){
+        setSaldo(getSaldo()-valor);
+       }else{
+           System.out.println("valor sacado");
+
+  }
+}
+  public void depositar(double valor){
+    if(valor>0){
+        setSaldo(getSaldo()+valor);
+       }else{
+           System.out.println("valor nao foi depositado");
+       }
+  }
+
+public void setSaldo(double saldo) {
+    this.saldo = saldo;
+}
+
+public List <Transacoes> histransacoes = new ArrayList<>();
+
+public void Extrato(){
+    System.out.println("Extrato da conta do:" + usuario.getNome());
+    for( Transacoes transacoes : histransacoes){
+        System.out.println(transacoes.toString());
+    }
+}
+
+
+@Override
+public String toString() {
+  return "Conta [saldo=" + saldo + ", usuario=" + getUsuario()+ "]";
+}
 
 }

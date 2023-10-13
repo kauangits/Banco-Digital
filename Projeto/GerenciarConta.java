@@ -1,15 +1,47 @@
 package Projeto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class GerenciarConta extends ContaBancaria{
 
     private boolean deixa;
+
+    private Gerente g1;
+    private List<ContaBancaria> contas;
+    private ContaBancaria conta;
+
     
-    public GerenciarConta(String cpf, String nome, String endereco, String dataNascimento, int codigo, String login,
-            String senha, double saldo, Usuario usuario, boolean deixa) {
-        super(cpf, nome, endereco, dataNascimento, codigo, login, senha, saldo, usuario);
-        this.deixa = deixa;
+    public GerenciarConta(int codigo, String login, String senha, double saldo, Usuario usuario, Gerente g1,
+            List<ContaBancaria> contas, ContaBancaria conta) {
+        super(codigo, login, senha, saldo, usuario);
+        this.g1 = g1;
+        this.contas = contas;
+        this.conta = conta;
+    }
+
+    public Gerente getG1() {
+        return g1;
+    }
+
+    public void setG1(Gerente g1) {
+        this.g1 = g1;
+    }
+
+    public List<ContaBancaria> getContas() {
+        return contas;
+    }
+
+    public void setContas(List<ContaBancaria> contas) {
+        this.contas = contas;
+    }
+
+    public ContaBancaria getConta() {
+        return conta;
+    }
+
+    public void setConta(ContaBancaria conta) {
+        this.conta = conta;
     }
 
     public boolean isDeixa() {
@@ -31,11 +63,18 @@ public abstract class GerenciarConta extends ContaBancaria{
         return false;
     }
 
+    public void criarConta(ContaBancaria conta){
+    
+        contas.add(conta);
+      
+      
+
+
+    }
+
     public void verSaldo(){
         System.out.println("Esse é o seu salo: " + getSaldo());
     }
-
-    List<ContaBancaria> contas;
 
     public void exibirInfo() {
         for (ContaBancaria conta : contas) {
@@ -47,9 +86,7 @@ public abstract class GerenciarConta extends ContaBancaria{
             }
         }
     }
-// precisamos da lista de contas de usuarios que ta com kauan 
-// então provavevelmnte funcionaria
-
+    
     public void Encerrar(){
         if (conta.getSaldo() == 0.0) { 
             contas.remove(conta); 
@@ -57,6 +94,11 @@ public abstract class GerenciarConta extends ContaBancaria{
         } else {
             System.out.println("Não é possível encerrar a conta. O saldo não é zero.");
         }
+    }
+
+     @Override
+    public String toString() {
+        return "GerenciadorDeConta [g1=" + g1 + ", contas=" + contas + ", conta=" + conta + "]";
     }
 
     }
