@@ -2,24 +2,24 @@ package Projeto;
 
 import java.util.Scanner;
 
-class AutorizacaoSeguranca extends Gerente {
+class AutorizacaoSeguranca  {
 
-    
-    public AutorizacaoSeguranca(String cpf, String nome, String endereco, String dataNascimento, String cargo, GerenciarConta gerencia) {
-        super(cpf, nome, endereco, dataNascimento, cargo, gerencia);
-    }
+    Scanner sc = new Scanner(System.in);
+   
 
-    public boolean verificarSenha(ContaBancaria conta, String senhaDigitada) {
-    while (!conta.getSenha().equals(senhaDigitada)) {
-        Scanner scanner = new Scanner(System.in);
+    public boolean verificarSenha(ContaBancaria conta, int senha) {
+        while (conta.getSenha()!=senha) {
         System.out.println("Senha incorreta. Digite sua senha novamente: ");
-        senhaDigitada = scanner.nextLine();
+       int senhaDigitada = sc.nextInt();
+      if(senhaDigitada==senha){
+        return true;
+      }
     }
     System.out.println("Senha verificada com sucesso.");
     return true;
 }
 
-    public boolean autorizarOperacao(String senhaDigitada) {
+  /*   public boolean autorizarOperacao(String senhaDigitada) {
         if (verificarSenha(getGerencia(), senhaDigitada)) {
             System.out.println("Operação autorizada.");
             return true;
@@ -27,15 +27,16 @@ class AutorizacaoSeguranca extends Gerente {
             System.out.println("Senha incorreta. Operação não autorizada.");
             return false;
         }
-    }
+    }*/
 
-    public void verificarLogin(ContaBancaria conta){
-        Scanner sc = new Scanner(System.in);
+    public ContaBancaria verificarLogin(ContaBancaria conta){
+       while()
         System.out.println("Digite seu login:");
         String loginDigitado = sc.nextLine();
 
         if(conta.getLogin().equals(loginDigitado)){
             System.out.println("login correto");
+       
         }
         else{
             System.out.println("login errado digite novamente");

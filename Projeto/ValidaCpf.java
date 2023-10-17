@@ -19,7 +19,7 @@ public class ValidaCpf {
         return true;
     }
 
-    public static boolean ValidaNumber(){
+    public static boolean ValidaNumber(String cpf){
         int [] digitos = new int[11];
 
         for( int i=0; i<11; i++){

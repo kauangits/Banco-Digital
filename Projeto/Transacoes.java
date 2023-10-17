@@ -8,7 +8,7 @@ public class Transacoes extends ContaBancaria{
     private String descricao;
     private List <ContaBancaria> conta;
 
-    public Transacoes(int codigo, String login, String senha, double saldo, Usuario usuario, String data,
+    public Transacoes(int codigo, String login, int senha, double saldo, Usuario usuario, String data,
             String descricao, List<ContaBancaria> conta) {
         super(codigo, login, senha, saldo, usuario);
         this.data = data;

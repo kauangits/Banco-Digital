@@ -1,23 +1,22 @@
 package Projeto;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public abstract class GerenciarConta extends ContaBancaria{
+import java.util.List;
+import java.util.Scanner;
+
+public class GerenciarConta{
 
     private boolean deixa;
 
     private Gerente g1;
     private List<ContaBancaria> contas;
     private ContaBancaria conta;
-
-    
-    public GerenciarConta(int codigo, String login, String senha, double saldo, Usuario usuario, Gerente g1,
-            List<ContaBancaria> contas, ContaBancaria conta) {
-        super(codigo, login, senha, saldo, usuario);
+ 
+     Scanner teclado = new Scanner(System.in);
+    public GerenciarConta(Gerente g1) {
+      
         this.g1 = g1;
-        this.contas = contas;
-        this.conta = conta;
+        
     }
 
     public Gerente getG1() {
@@ -71,9 +70,24 @@ public abstract class GerenciarConta extends ContaBancaria{
 
 
     }
+    public ContaBancaria existirLogin(String login){
+     for(ContaBancaria c:contas){
+        if(c.getLogin().equals(login)){
+        return c;
+            
+
+        }else{
+        System.out.println("login inexistente");
+            return null;
+        }
+      }
+
+    }
+
+
 
     public void verSaldo(){
-        System.out.println("Esse é o seu salo: " + getSaldo());
+        System.out.println("Esse é o seu saldo: " + conta.getSaldo());
     }
 
     public void exibirInfo() {
@@ -96,9 +110,6 @@ public abstract class GerenciarConta extends ContaBancaria{
         }
     }
 
-     @Override
-    public String toString() {
-        return "GerenciadorDeConta [g1=" + g1 + ", contas=" + contas + ", conta=" + conta + "]";
-    }
+    
 
     }

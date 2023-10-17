@@ -4,31 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CadastroUsuario {
-    private String login;
-    private String senha;
+public class CadastroUsuario  {
+  
     private Usuario usuario;
     private List<Usuario> usuarios;
-    
+  
+  
+  
     public CadastroUsuario() {
         usuarios = new ArrayList<>();
     }
 
-    public String getLogin() {
-        return login;
-    }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+ 
+  
 
-    public String getSenha() {
-        return senha;
-    }
+ 
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
 
   Scanner teclado = new Scanner(System.in);   
    
@@ -45,15 +37,14 @@ public class CadastroUsuario {
         String  endereco = teclado.nextLine();
       System.out.println("digite cpf");
     String Cpf = teclado.nextLine();
-    
+    ValidaCpf.VerficaCpf(Cpf);
+    ValidaCpf.ValidaNumber(Cpf);
 
         if((!existirUsuarioCpf(Cpf))&&(!existirUsuarioEndereco(endereco))&&(!existirUsuarioNome(nome))&&!existirUsuarioEndereco(endereco)){
       Usuario usuario = new Usuario(Cpf, nome, endereco, nascimento);
     
       usuarios.add(usuario);
-  
-    
-
+   
 
     System.out.println("usuario cadastrado");
    System.out.println("usuario"+usuario.getNome());
@@ -103,16 +94,14 @@ public class CadastroUsuario {
         return false;
     }
 
-    public boolean escolherUsuario() {
-    System.out.println("digite o cpf do usuario para criaçao da conta");
-        String n = teclado.nextLine(); 
+    public Usuario escolherUsuario(String n) {
     
     for (Usuario usuario : usuarios) {
-            if (usuario.getCpf().equals(n)) {
-                return true;
+            if (usuario.getNome().equals(n)) {
+                return usuario;
             }
         }
-        return false;
+        return null;
     }
 
     public Usuario getUsuario() {

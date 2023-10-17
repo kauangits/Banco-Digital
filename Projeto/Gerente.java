@@ -31,7 +31,7 @@ public class Gerente extends Usuario{
         gerencia.verSaldo();
         gerencia.exibirInfo();
         gerencia.Permitir();
-        gerencia.criarConta(gerencia);
+       
         
     }
 }

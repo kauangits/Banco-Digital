@@ -7,12 +7,12 @@ public class ContaBancaria extends CadastroUsuario{
 
     private int codigo;
     private String login;
-    private String senha;
+    private int senha;
     private double saldo;
     private Usuario usuario;
     
 
-public ContaBancaria(int codigo, String login, String senha, double saldo, Usuario usuario) {
+public ContaBancaria(int codigo, String login, int senha, double saldo, Usuario usuario) {
         this.codigo = codigo;
         this.login = login;
         this.senha = senha;
@@ -32,10 +32,8 @@ public int getCodigo() {
     public void setLogin(String login) {
         this.login = login;
     }
-    public String getSenha() {
-        return senha;
-    }
-    public void setSenha(String senha) {
+   
+    public void setSenha(int senha) {
         this.senha = senha;
     }
     public Usuario getUsuario() {
@@ -81,6 +79,15 @@ public void Extrato(){
 @Override
 public String toString() {
   return "Conta [saldo=" + saldo + ", usuario=" + getUsuario()+ "]";
+}
+
+
+public List<Transacoes> getHistransacoes() {
+    return histransacoes;
+}
+
+public int getSenha() {
+    return senha;
 }
 
 }
