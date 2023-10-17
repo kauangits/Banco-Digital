@@ -58,31 +58,30 @@ CadastroUsuario usuari = new CadastroUsuario();
                String nomeUsuarioConta = sc.next();
              Usuario usuariopelonome =  usuari.escolherUsuario(nomeUsuarioConta);
              if(usuariopelonome!=null){
-                System.out.println("digite senha");
+              System.out.println("digite o codigo da conta");
+              int codigo = sc.nextInt(); 
+              System.out.println("digite senha");
                 int senha = sc.nextInt();
                 System.out.println("digite o login");
                 String login = sc.next();
-                ContaBancaria novaconta = new ContaBancaria(opcao, login, senha, senha, usuariopelonome);
+              if(geren1.loginDiferente(login)==true){
+                ContaBancaria novaconta = new ContaBancaria(codigo, login, senha, senha, usuariopelonome);
                geren1.criarConta(novaconta); 
              System.out.println("conta criada");
+              }
             }else{
                 System.out.println("usuario nao encontrado");
             }
                 break;
                   case 3:
-  
-           ContaBancaria entrarConta = geren1.encontrarConta();
-           autorizaçao.verificarSenha(entrarConta);
+             System.out.println("digite o codigo da conta");
+              int c = sc.nextInt();     
+             ContaBancaria conta = geren1.encontrarConta(c);
+             autorizaçao.verificarSenha(conta, c);
+
                  break;
                case 4:
-               int valor = sc.nextInt();
-               ContaBancaria veriConta = geren1.encontrarConta();
-              if(veriConta!=null&&autorizaçao.verificarSenha(veriConta)==true){
-               veriConta.depositar(valor);
-              }
-                 
-
-
+             
                break;
         
                  case 5:

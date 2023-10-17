@@ -70,20 +70,35 @@ public class GerenciarConta{
 
 
     }
-    public ContaBancaria existirLogin(String login){
+    public boolean loginDiferente(String login){
      for(ContaBancaria c:contas){
         if(c.getLogin().equals(login)){
-        return c;
-            
+            System.out.println("login ja existe digite novamente");
+            String l = teclado.nextLine();
+          if(!c.getLogin().equals(l)){
+            System.out.println("seu login e valido");
+            return true;
+          }
 
         }else{
-        System.out.println("login inexistente");
-            return null;
+        System.out.println("seu login esta correto");
+            return true;
         }
+        
       }
-
+   return false;
     }
 
+    public ContaBancaria encontrarConta(int codigo){
+        for(ContaBancaria c:contas){
+         if(c.getCodigo()==codigo){
+            return c;
+         }
+        
+        }
+        return null;
+
+    }
 
 
     public void verSaldo(){

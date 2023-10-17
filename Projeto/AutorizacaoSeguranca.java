@@ -7,16 +7,17 @@ class AutorizacaoSeguranca  {
     Scanner sc = new Scanner(System.in);
    
 
-    public boolean verificarSenha(ContaBancaria conta, int senha) {
-        while (conta.getSenha()!=senha) {
-        System.out.println("Senha incorreta. Digite sua senha novamente: ");
-       int senhaDigitada = sc.nextInt();
-      if(senhaDigitada==senha){
+    public boolean verificarSenha(ContaBancaria conta,int senha) {
+    while(conta.getSenha()!=senha){
+    System.out.println("senha errada digite novamente");
+      int s = sc.nextInt();
+      if(s==conta.getSenha()){
+       System.out.println("senha correta");
         return true;
       }
+     
     }
-    System.out.println("Senha verificada com sucesso.");
-    return true;
+   return false; 
 }
 
   /*   public boolean autorizarOperacao(String senhaDigitada) {
@@ -29,20 +30,23 @@ class AutorizacaoSeguranca  {
         }
     }*/
 
-    public ContaBancaria verificarLogin(ContaBancaria conta){
-       while()
-        System.out.println("Digite seu login:");
-        String loginDigitado = sc.nextLine();
-
-        if(conta.getLogin().equals(loginDigitado)){
-            System.out.println("login correto");
-       
-        }
-        else{
-            System.out.println("login errado digite novamente");
-        }
+    public boolean verificarLogin(ContaBancaria conta,int login){
+      while(conta.getLogin().equals(login)){
+    System.out.println("senha errada digite novamente");
+      String l = sc.nextLine();
+      if(l==conta.getLogin()){
+       System.out.println("senha correta");
+        return true;
+      }
+     
+    }
+   return false; 
     }
     
+    public void entrarNaConta(){
+
+    }
+
     /*public void verificarLogin(ContaBancaria conta){
     Scanner sc = new Scanner(System.in);
     String loginDigitado;
