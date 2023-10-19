@@ -102,7 +102,41 @@ CadastroUsuario usuari = new CadastroUsuario();
                 
     }
 
+    /*Scanner scanner = new Scanner(System.in);
 
+        while (true) {
+            try {
+                System.out.println("Escolha a operação:");
+                System.out.println("1. Depósito");
+                System.out.println("2. Saque");
+                System.out.println("3. Transação");
+                System.out.println("4. Sair");
+
+                int escolha = scanner.nextInt();
+
+                if (escolha == 1) {
+                    System.out.print("Digite o valor do depósito: ");
+                    double valor = scanner.nextDouble();
+                    depositar(valor);
+                } else if (escolha == 2) {
+                    System.out.print("Digite o valor do saque: ");
+                    double valor = scanner.nextDouble();
+                    sacar(valor);
+                } else if (escolha == 3) {
+                    System.out.print("Digite o valor da transação: ");
+                    double valor = scanner.nextDouble();
+                    Transacao(null, valor, null);
+                } else if (escolha == 4) {
+                    break; 
+                } else {
+                    System.out.println("Opção inválida. Tente novamente.");
+                }
+            } catch (ValorInvalidoException | SaldoInsuficienteException | ContaNaoExisteException e) {
+                System.err.println("Erro: " + e.getMessage());
+            }
+        }
+
+        scanner.close();*/
 }
 }
 

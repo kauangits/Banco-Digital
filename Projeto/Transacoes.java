@@ -2,7 +2,7 @@ package Projeto;
 
 import java.util.List;
 
-public class Transacoes extends ContaBancaria{
+public abstract class Transacoes extends ContaBancaria{
     
     private  String data;
     private String descricao;
@@ -67,7 +67,7 @@ public class Transacoes extends ContaBancaria{
 
     @Override
     public String toString() {
-        return "Transacoes [data=" + data + ", descricao=" + descricao + ", conta=" + conta + "]";
+        return "Transacoes [data=" + data + ", descricao=" + descricao + "]";
     }
 
 }

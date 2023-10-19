@@ -2,7 +2,7 @@ package Projeto;
 
 import java.util.Scanner;
 
-class AutorizacaoSeguranca  {
+class AutorizacaoSeguranca {
 
     Scanner sc = new Scanner(System.in);
    
@@ -30,7 +30,7 @@ class AutorizacaoSeguranca  {
         }
     }*/
 
-    public boolean verificarLogin(ContaBancaria conta,int login){
+    public boolean verificarLogin(ContaBancaria conta,String login){
       while(conta.getLogin().equals(login)){
     System.out.println("senha errada digite novamente");
       String l = sc.nextLine();
@@ -42,10 +42,21 @@ class AutorizacaoSeguranca  {
     }
    return false; 
     }
-    
-    public void entrarNaConta(){
 
+    public void entrarNaConta(ContaBancaria conta) {
+        System.out.print("Digite o login: ");
+        String login = sc.nextLine();
+        System.out.print("Digite a senha: ");
+        int senha = sc.nextInt();
+    
+        if (verificarLogin(conta, login) && verificarSenha(conta, senha)) {
+            System.out.println("Acesso autorizado à conta.");
+            conta.realizarOperacoes(conta);
+        } else {
+            System.out.println("Login ou senha incorretos. Acesso negado à conta.");
+        }
     }
+    
 
     /*public void verificarLogin(ContaBancaria conta){
     Scanner sc = new Scanner(System.in);
