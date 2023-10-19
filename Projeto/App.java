@@ -116,6 +116,8 @@ CadastroUsuario usuari = new CadastroUsuario();
 
     /*Scanner scanner = new Scanner(System.in);
 
+
+    ,klkjhkjhjgg
         while (true) {
             try {
                 System.out.println("Escolha a operação:");
