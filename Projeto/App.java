@@ -35,7 +35,7 @@ public class App{
 CadastroUsuario usuari = new CadastroUsuario();
  Gerente g1 = new Gerente("234433", "carlos", "123", "12042004", "gerente", null);
   GerenciarConta geren1 = new GerenciarConta(g1);
-
+  Autenticar autenticacao = new Autenticar();
  AutorizacaoSeguranca autorizaçao = new AutorizacaoSeguranca();
  
   
@@ -75,13 +75,46 @@ CadastroUsuario usuari = new CadastroUsuario();
                 break;
                   case 3:
              System.out.println("digite o codigo da conta");
-              int c = sc.nextInt();     
+              int c = sc.nextInt(); 
+                 
              ContaBancaria conta = geren1.encontrarConta(c);
-             autorizaçao.verificarSenha(conta, c);
-
+             if(conta!=null){
+            System.out.println("digite login");
+            String l = sc.nextLine();
+            System.out.println("digite senha");
+            int s = sc.nextInt();
+              autorizaçao.verificarSenha(conta, c);
+             autorizaçao.verificarLogin(conta, l);
+           if(autenticacao.autenticar(conta, l, s)){
+           ContaBancaria contaAtual = conta;
+          
+          }
+            }else{
+              System.out.println("conta nao foi encontrada");
+             } 
                  break;
                case 4:
-             
+               if (autenticacao.isAutenticado()) {
+                System.out.println("Digite o código da conta para depósito");
+                int numeroDeposito = sc.nextInt();
+                ContaBancaria contaParaDepositar = geren1.encontrarConta(numeroDeposito);
+               }
+               System.out.println("digite o codigo da conta");
+              int numeroDeposito = sc.nextInt(); 
+               ContaBancaria contaParaDepositar = geren1.encontrarConta(numeroDeposito);
+              if(contaParaDepositar!=null){
+               System.out.println("digite login");
+            String l = sc.nextLine();
+            System.out.println("digite senha");
+            int s = sc.nextInt();
+                
+  
+              }else{
+                System.out.println("conta nao foi encontrada");
+              }
+              
+              
+              
                break;
         
                  case 5:

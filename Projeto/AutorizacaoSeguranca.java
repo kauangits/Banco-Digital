@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 class AutorizacaoSeguranca  {
 
-    Scanner sc = new Scanner(System.in);
+   
+   Scanner sc = new Scanner(System.in);
    
 
     public boolean verificarSenha(ContaBancaria conta,int senha) {
@@ -30,7 +31,7 @@ class AutorizacaoSeguranca  {
         }
     }*/
 
-    public boolean verificarLogin(ContaBancaria conta,int login){
+    public boolean verificarLogin(ContaBancaria conta,String login){
       while(conta.getLogin().equals(login)){
     System.out.println("senha errada digite novamente");
       String l = sc.nextLine();
@@ -43,8 +44,11 @@ class AutorizacaoSeguranca  {
    return false; 
     }
     
-    public void entrarNaConta(){
-
+    public boolean entrarNaConta(ContaBancaria contaEntrar,String login,int senha){
+     if(verificarLogin(contaEntrar, login)==true&&verificarSenha(contaEntrar, senha)==true){
+        return true;
+     }
+     return false;
     }
 
     /*public void verificarLogin(ContaBancaria conta){
@@ -79,4 +83,8 @@ class AutorizacaoSeguranca  {
             return false;
         }
     }*/
+
+  
+
+
 }
