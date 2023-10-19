@@ -35,7 +35,7 @@ public class App{
 CadastroUsuario usuari = new CadastroUsuario();
  Gerente g1 = new Gerente("234433", "carlos", "123", "12042004", "gerente", null);
   GerenciarConta geren1 = new GerenciarConta(g1);
-
+  Autenticar autenticacao = new Autenticar();
  AutorizacaoSeguranca autorizaçao = new AutorizacaoSeguranca();
  
   
@@ -86,36 +86,17 @@ CadastroUsuario usuari = new CadastroUsuario();
             break;
                   case 3:
              System.out.println("digite o codigo da conta");
-              int c = sc.nextInt();     
+              int c = sc.nextInt(); 
+                 
              ContaBancaria conta = geren1.encontrarConta(c);
-            System.out.println("senha");
-             int senhaa = sc.nextInt();
-            System.out.println("login");
-            String loginn = sc.next(); 
-             autorizaçao.verificarSenha(conta, senhaa);
-                System.out.println("entrou na conta");
+             autorizaçao.verificarSenha(conta, c);
 
-             
                  break;
                case 4:
-         /*    System.out.println("digite o codigo");
-             int codi = sc.nextInt();  
-            ContaBancaria contaAtual = geren1.encontrarConta(codi);
-               if(autorizaçao.entrarNaConta(contaAtual)){
-                  contaAtual.realizarOperacoes(contaAtual);
-             }else{
-                System.out.println("nao esta dentro da conta");
-             }*/
-              
-             break;
-         case 5:
-         
-
-
-
-
-         break;
-                 case 7:
+             
+               break;
+        
+                 case 5:
                     System.out.println("Saindo do programa.");
                     System.exit(0);
                     break;

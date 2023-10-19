@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 class AutorizacaoSeguranca {
 
-    Scanner sc = new Scanner(System.in);
+   
+   Scanner sc = new Scanner(System.in);
    
 
     public void verificarSenha(ContaBancaria conta,int senha) {
@@ -41,23 +42,10 @@ class AutorizacaoSeguranca {
     }
    return false; 
     }
-
-  /*   public boolean entrarNaConta(ContaBancaria conta) {
-        System.out.print("Digite o login: ");
-        String login = sc.nextLine();
-        System.out.print("Digite a senha: ");
-        int senha = sc.nextInt();
     
-        if (verificarLogin(conta, login) && verificarSenha(conta, senha)) {
-            System.out.println("Acesso autorizado à conta.");
-            conta.realizarOperacoes(conta);
-         return true;
-        } else {
-            System.out.println("Login ou senha incorretos. Acesso negado à conta.");
-          return false;
-        }
+    public void entrarNaConta(){
+
     }
-    */
 
     /*public void verificarLogin(ContaBancaria conta){
     Scanner sc = new Scanner(System.in);
@@ -91,4 +79,8 @@ class AutorizacaoSeguranca {
             return false;
         }
     }*/
+
+  
+
+
 }
