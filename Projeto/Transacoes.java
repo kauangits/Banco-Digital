@@ -10,7 +10,7 @@ public abstract class Transacoes extends ContaBancaria{
 
     public Transacoes(int codigo, String login, int senha, double saldo, Usuario usuario, String data,
             String descricao, List<ContaBancaria> conta) {
-        super(codigo, login, senha, saldo, usuario);
+        super(codigo, login, senha,usuario);
         this.data = data;
         this.descricao = descricao;
         this.conta = conta;

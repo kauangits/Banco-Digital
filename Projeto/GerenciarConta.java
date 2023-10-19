@@ -1,6 +1,7 @@
 package Projeto;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class GerenciarConta{
  
      Scanner teclado = new Scanner(System.in);
     public GerenciarConta(Gerente g1) {
-      
+      contas = new ArrayList<>();
         this.g1 = g1;
         
     }
@@ -70,6 +71,13 @@ public class GerenciarConta{
 
 
     }
+    
+    public int getQuantidadeDeContas() {
+        return contas.size();
+    }
+
+ 
+ 
     public boolean loginDiferente(String login){
      for(ContaBancaria c:contas){
         if(c.getLogin().equals(login)){

@@ -63,28 +63,59 @@ CadastroUsuario usuari = new CadastroUsuario();
               System.out.println("digite senha");
                 int senha = sc.nextInt();
                 System.out.println("digite o login");
-                String login = sc.next();
+                String login = sc.next();     
+                ContaBancaria novaconta = new ContaBancaria(codigo, login, senha, usuariopelonome);
+             if(geren1.getQuantidadeDeContas()<2){
+              geren1.criarConta(novaconta);
+             }else{
               if(geren1.loginDiferente(login)==true){
-                ContaBancaria novaconta = new ContaBancaria(codigo, login, senha, senha, usuariopelonome);
-               geren1.criarConta(novaconta); 
+                geren1.criarConta(novaconta); 
              System.out.println("conta criada");
+              }else{
+                System.out.println("mesmo login");
               }
+             }
+            
+            
             }else{
                 System.out.println("usuario nao encontrado");
             }
-                break;
+            
+            
+            
+            break;
                   case 3:
              System.out.println("digite o codigo da conta");
               int c = sc.nextInt();     
              ContaBancaria conta = geren1.encontrarConta(c);
-             autorizaçao.verificarSenha(conta, c);
+            System.out.println("senha");
+             int senhaa = sc.nextInt();
+            System.out.println("login");
+            String loginn = sc.next(); 
+             autorizaçao.verificarSenha(conta, senhaa);
+                System.out.println("entrou na conta");
 
+             
                  break;
                case 4:
-             
-               break;
-        
-                 case 5:
+         /*    System.out.println("digite o codigo");
+             int codi = sc.nextInt();  
+            ContaBancaria contaAtual = geren1.encontrarConta(codi);
+               if(autorizaçao.entrarNaConta(contaAtual)){
+                  contaAtual.realizarOperacoes(contaAtual);
+             }else{
+                System.out.println("nao esta dentro da conta");
+             }*/
+              
+             break;
+         case 5:
+         
+
+
+
+
+         break;
+                 case 7:
                     System.out.println("Saindo do programa.");
                     System.exit(0);
                     break;

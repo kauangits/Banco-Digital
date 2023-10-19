@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ContaBancaria extends CadastroUsuario{
+public class ContaBancaria extends AutorizacaoSeguranca {
 
     private int codigo;
     private String login;
@@ -13,11 +13,11 @@ public class ContaBancaria extends CadastroUsuario{
     private Usuario usuario;
     
 
-public ContaBancaria(int codigo, String login, int senha, double saldo, Usuario usuario) {
+public ContaBancaria(int codigo, String login, int senha,Usuario usuario) {
         this.codigo = codigo;
         this.login = login;
         this.senha = senha;
-        this.saldo = saldo;
+        this.saldo = 0.0;
         this.usuario = usuario;
     }
 
@@ -77,9 +77,7 @@ public List<Transacoes> getHistransacoes() {
     return histransacoes;
 }
 
-public int getSenha() {
-    return senha;
-}
+
 public void Transacao( ContaBancaria destinatario, double valor, Transacoes transacoes) throws ContaNaoExisteException, ValorInvalidoException, SaldoInsuficienteException{
 
     if(valor <=0){
@@ -124,7 +122,7 @@ public void Extrato(){
 
 public void realizarOperacoes(ContaBancaria conta) {
     Scanner scanner = new Scanner(System.in);
-
+ 
     while (true) {
         try {
             System.out.println("Escolha a operação:");
@@ -151,7 +149,7 @@ public void realizarOperacoes(ContaBancaria conta) {
                 double valor = scanner.nextDouble();
                 Transacao(null, valor, null);
             } else if (escolha == 4) {
-                conta.exibirInfo();
+             
             } else if (escolha == 5) {
                 System.out.println("Saindo do menu.");
                 break;
@@ -170,6 +168,14 @@ public void realizarOperacoes(ContaBancaria conta) {
 @Override
 public String toString() {
   return "Conta [saldo=" + saldo + ", usuario=" + getUsuario()+ "]";
+}
+
+public int getSenha() {
+    return senha;
+}
+
+public List<ContaBancaria> getContas() {
+    return contas;
 }
 
 }

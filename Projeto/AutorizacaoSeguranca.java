@@ -7,18 +7,17 @@ class AutorizacaoSeguranca {
     Scanner sc = new Scanner(System.in);
    
 
-    public boolean verificarSenha(ContaBancaria conta,int senha) {
-    while(conta.getSenha()!=senha){
-    System.out.println("senha errada digite novamente");
-      int s = sc.nextInt();
-      if(s==conta.getSenha()){
-       System.out.println("senha correta");
-        return true;
+    public void verificarSenha(ContaBancaria conta,int senha) {
+     for(ContaBancaria c:conta.getContas()){
+      if(c.getSenha()==senha){
+    System.out.println("senha correta");
+      }else{
+        System.out.println("senha errada");
       }
-     
+     }
     }
-   return false; 
-}
+  
+    
 
   /*   public boolean autorizarOperacao(String senhaDigitada) {
         if (verificarSenha(getGerencia(), senhaDigitada)) {
@@ -32,7 +31,7 @@ class AutorizacaoSeguranca {
 
     public boolean verificarLogin(ContaBancaria conta,String login){
       while(conta.getLogin().equals(login)){
-    System.out.println("senha errada digite novamente");
+    System.out.println(" login errado digite novamente");
       String l = sc.nextLine();
       if(l==conta.getLogin()){
        System.out.println("senha correta");
@@ -43,7 +42,7 @@ class AutorizacaoSeguranca {
    return false; 
     }
 
-    public void entrarNaConta(ContaBancaria conta) {
+  /*   public boolean entrarNaConta(ContaBancaria conta) {
         System.out.print("Digite o login: ");
         String login = sc.nextLine();
         System.out.print("Digite a senha: ");
@@ -52,11 +51,13 @@ class AutorizacaoSeguranca {
         if (verificarLogin(conta, login) && verificarSenha(conta, senha)) {
             System.out.println("Acesso autorizado à conta.");
             conta.realizarOperacoes(conta);
+         return true;
         } else {
             System.out.println("Login ou senha incorretos. Acesso negado à conta.");
+          return false;
         }
     }
-    
+    */
 
     /*public void verificarLogin(ContaBancaria conta){
     Scanner sc = new Scanner(System.in);
